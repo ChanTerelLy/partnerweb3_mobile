@@ -4,6 +4,7 @@ import 'package:partnerweb3_mobile/model/ticket.dart';
 class TicketTile extends StatelessWidget {
   final Ticket ticket;
 
+
   TicketTile({this.ticket});
 
 

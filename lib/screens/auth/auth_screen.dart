@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:partnerweb3_mobile/services/auth.dart';
 import 'package:partnerweb3_mobile/shared/constants.dart';
+import 'package:partnerweb3_mobile/shared/loading.dart';
 
 class AuthScreen extends StatefulWidget {
   @override
@@ -11,6 +12,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
+
   // text field state
   String operator = '';
   String password = '';
@@ -18,7 +20,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       appBar: AppBar(
         title: Text('Partnerweb3'),
         backgroundColor: Colors.orange[400],
@@ -48,12 +50,15 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
               SizedBox(height: 20.0),
               RaisedButton(
-                  color: Colors.black,
+                  color: Colors.orange,
                   child: Text(
                     'Войти',
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async{
+                    setState(() {
+                      loading = true;
+                    });
                     bool result = await Auth().auth({'operator' : operator.toString(), 'password' : password.toString()});
                     if(result){
                       Navigator.pushNamed(context, '/tickets', arguments: {

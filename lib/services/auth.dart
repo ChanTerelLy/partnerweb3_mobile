@@ -6,9 +6,14 @@ import 'package:partnerweb3_mobile/services/database.dart';
 
 class Auth {
 
+  Future<RemoteConfig> get config async{
+    return await Config().getRemoteConfig();
+  }
+
 
   Future auth(Map arguments) async {
-    var url = 'http://10.0.2.2:8000/api_login';
+    RemoteConfig conf = await this.config;
+    var url = conf.getString('host') + '/api_login';
     var response = await http.post(url, body: arguments);
     if (response.statusCode == 200) {
       var jsonResponse = convert.jsonDecode(response.body);

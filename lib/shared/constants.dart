@@ -11,7 +11,7 @@ const textFormDecoration = InputDecoration(
   ),
   focusedBorder: OutlineInputBorder(
     borderSide: BorderSide(
-      color: Colors.pink,
+      color: Colors.orange,
       width: 2,
     )
   ),
