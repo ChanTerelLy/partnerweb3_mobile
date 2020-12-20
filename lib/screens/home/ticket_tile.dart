@@ -17,6 +17,9 @@ class TicketTile extends StatelessWidget {
           child: ListTile(
             title: Text(ticket.name),
             subtitle: Text(ticket.address),
+            onTap: () {
+              // pass
+            },
         ),
       ),
     );

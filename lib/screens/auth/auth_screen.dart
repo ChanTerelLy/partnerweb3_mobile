@@ -31,7 +31,7 @@ class _AuthScreenState extends State<AuthScreen> {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              SizedBox(height: 20.0),
+              SizedBox(height: 5.0),
               TextFormField(
                 decoration: textFormDecoration.copyWith(hintText: 'Код сотрудника'),
                 validator: (val) => val.isEmpty ? 'Заполните код сотрудника' : null,
@@ -39,7 +39,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   setState(() => operator = val);
                 },
               ),
-              SizedBox(height: 20.0),
+              SizedBox(height: 15.0),
               TextFormField(
                 decoration: textFormDecoration.copyWith(hintText: 'Пароль'),
                 obscureText: true,
@@ -48,7 +48,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   setState(() => password = val);
                 },
               ),
-              SizedBox(height: 20.0),
+              SizedBox(height: 15.0),
               RaisedButton(
                   color: Colors.orange,
                   child: Text(

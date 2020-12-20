@@ -18,6 +18,31 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     _getBody(index);
     return Scaffold(
+        drawer: Drawer(
+            child: ListView(
+              children: const <Widget>[
+                ListTile(
+                  leading: Icon(Icons.message),
+                  title: Text('Все заявки'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text('Статистика'),
+                ),
+              ],
+            ),
+          ),
+        appBar: AppBar(
+          title: Text('Заявки'),
+          actions: [
+            Icon(Icons.favorite),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: Icon(Icons.search),
+            ),
+          ],
+          backgroundColor: Colors.orange,
+        ),
         body: ticketsView,
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: index,
@@ -29,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
               icon: Icon(Icons.arrow_forward_outlined),
               label: 'Назначенные',
+
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.access_alarm),
@@ -39,7 +65,16 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'Подключенные',
             ),
           ],
-        ));
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.orange,
+          foregroundColor: Colors.black,
+          onPressed: () {
+            // Respond to button press
+          },
+          child: Icon(Icons.add),
+        ),
+    );
   }
 
   Future ticketsType(int index) async {
