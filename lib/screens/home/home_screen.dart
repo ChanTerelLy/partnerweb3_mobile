@@ -22,9 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
         drawer: Drawer(
             child: ListView(
               children: const <Widget>[
-                Text(
-                  ''
-                ),
                 ListTile(
                   leading: Icon(Icons.message),
                   title: Text('Все заявки'),
@@ -82,7 +79,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future ticketsType(int index) async {
-    final User user = User(operator: widget.arguments['operator'], password: widget.arguments['password']);
+    Map<String, dynamic> u = await FlutterSession().get('auth');
+    final User user = User(operator: u['operator'], password: u['password']);
     switch (index) {
       case 0:
         return await TicketsManager(user).getAssignedTickets();
