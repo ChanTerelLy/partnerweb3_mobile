@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_session/flutter_session.dart';
 import 'package:partnerweb3_mobile/model/user.dart';
 import 'package:partnerweb3_mobile/screens/home/tickets_view.dart';
 import 'package:partnerweb3_mobile/services/tickets_manager.dart';
@@ -21,6 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
         drawer: Drawer(
             child: ListView(
               children: const <Widget>[
+                Text(
+                  ''
+                ),
                 ListTile(
                   leading: Icon(Icons.message),
                   title: Text('Все заявки'),

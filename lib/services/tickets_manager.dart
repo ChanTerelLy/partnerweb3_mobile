@@ -56,4 +56,17 @@ class TicketsManager {
       return tickets;
     }
   }
+
+  Future getDetailedTicket(int id) async {
+    RemoteConfig conf = await this.config;
+    String url = conf.getString('host') + '/info/$id?json=1';
+    var response = await http.post(url, body: {
+      'operator': this.user.operator,
+      'password': this.user.password,
+    });
+    if (response.statusCode == 200) {
+      var jsonResponse = jsonDecode(response.body);
+      return jsonResponse;
+    }
+  }
 }

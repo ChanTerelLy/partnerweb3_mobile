@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:partnerweb3_mobile/screens/auth/auth_screen.dart';
+import 'package:partnerweb3_mobile/screens/tickets/tickets_detailed_screen.dart';
 import 'screens/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => AuthScreen(),
         '/tickets': (context) => HomeScreen(ModalRoute.of(context).settings.arguments),
+        '/detail': (context) => TicketsDetailedScreen(ModalRoute.of(context).settings.arguments),
       },
     );
   }

@@ -18,7 +18,10 @@ class TicketTile extends StatelessWidget {
             title: Text(ticket.name),
             subtitle: Text(ticket.address),
             onTap: () {
-              // pass
+                // Navigator.pushNamed(context, '/tickets', arguments: {
+                //   'operator' : operator.toString(),
+                //   'password' : password.toString(),
+                // });
             },
         ),
       ),
